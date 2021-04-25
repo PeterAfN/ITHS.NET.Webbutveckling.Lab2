@@ -1,12 +1,73 @@
 "use strict";
 
-const coursesTableContent = document.querySelector("#courses-table-content");
-const tableView = document.querySelector("#tableView");
+// const tableShoppingCartContent = document.querySelector("#table-shopping-cart-content");
+
+const tableCoursesContent = document.querySelector("#table-courses-content");
+// const tableView = document.querySelector("#tableView");
 const shoppingCartItemsCtr = document.querySelector(".items-cart-ctr");
+const shoppingCartButton = document.querySelector(".shopping-cart-btn");
+const modalDialog = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const closeModal = document.querySelector('.close-modal');
+// ****************************************************
 
-CreateAllTables(); 
+function addCourseToShoppingCart(courseId) {
+  // // tableShoppingCartContent.insertAdjacentHTML(
+  // //   "beforeend",
+  // //   `
+  // //       <tr>
+  // //         <td>${course.id}</td>
+  // //         <td>${course.title}</td>
+  // //         <td>${course.description}</td>
+  // //         <td>${course.category}</td>
+  // //         <td>${course.length}</td>
+  // //         <td>${course.typ}</td>
+  // //         <td>${course.courseNumber}</td>
+  // //         <td class="cart-btn-table add">Lägg i kundvagn</td>
+  // //       </tr>
+  // //     `
+  // // );
+  //   // console.log(rows);
+  // const index = courses.findIndex(course => course.id == courseId);
+  // // console.log(rows[index]);
+  // // const course = rows.find(course => course.id == '4');
+  // // console.log(course.title);
+  // console.log(courses[index]);
+}
 
-function CreateAllTables() {
+function hideModal() {
+  // modal.style.display = "none";
+  modalDialog.classList.add('hidden');
+  overlay.classList.add('hidden');
+}
+
+function showModal() {
+  // modal.style.display = "block";
+  overlay.classList.remove('hidden');
+  modalDialog.classList.remove('hidden');
+}
+
+shoppingCartButton.addEventListener("click", () => {
+  showModal();
+});
+
+closeModal.addEventListener("click", hideModal);
+
+overlay.addEventListener('click', hideModal);
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    if (!modalDialog.classList.contains('hidden')) {
+      quitModal();
+    }
+  }
+});
+
+// ****************************************************
+
+createAllTables();
+
+function createAllTables() {
   getDataCourses();
 }
 
@@ -16,15 +77,18 @@ function getDataCourses() {
     .then((data) => createTableCourses(data));
 }
 
-function createTableCourses(courses) {
-  for (let course of courses) {
-    createRowCourses(course);
+var courses = [];
+
+function createTableCourses(data) {
+  courses = data;
+  for (let course of data) {
+    AddCoursesToPage(course);
   }
-  addEventListenersToCartButton();
+  addEventListenersToTableButton();
 }
 
-function createRowCourses(course) {
-  coursesTableContent.insertAdjacentHTML(
+function AddCoursesToPage(course) {
+  tableCoursesContent.insertAdjacentHTML(
     "beforeend",
     `
         <tr>
@@ -43,13 +107,13 @@ function createRowCourses(course) {
 
 // *************************new*******************************************
 
+function addEventListenersToTableButton() {
+  const tableRows = document.querySelectorAll(".table-courses-container .add");
 
-function addEventListenersToCartButton() {
-  const tableRows = document.querySelectorAll('.table-container .add');
-
-  tableRows.forEach(item => {
+  tableRows.forEach((item) => {
     const courseId = item.parentNode.firstElementChild.firstChild.nodeValue;
-    item.addEventListener('click', () => {
+    item.addEventListener("click", () => {
+      updateShoppingCartBarCounter(courseId);
       addCourseToShoppingCart(courseId);
     });
   });
@@ -57,9 +121,9 @@ function addEventListenersToCartButton() {
 
 let counter = 0;
 
-function addCourseToShoppingCart(course) {
+function updateShoppingCartBarCounter(course) {
   counter += 1;
-  shoppingCartItemsCtr.innerHTML = '';
+  shoppingCartItemsCtr.innerHTML = "";
   shoppingCartItemsCtr.insertAdjacentHTML(
     "beforeend",
     `

@@ -35,7 +35,7 @@
   </head>
   <body id="courses-body">
     <header id="landing">
-      <!-- ****** navbar ****** -->
+      <!------- navbar ------->
       <nav id="courses-navbar" class="navbar navbar-courses">
         <ul>
           <li><a href="../../index.html">Start</a></li>
@@ -49,23 +49,25 @@
         </h2>
       </nav>
     </header>
+    <!------- shopping cart modal ------->
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <div class="modal-container"></div>
+    </div>
     <main id="main-courses">
-      <!-- ****** shopping cart bar ****** -->
+      <!------- shopping cart bar ------->
       <section id="shopping-cart-bar">
-        <a
-          class="shopping-cart-btn"
-          href="javascript: document.body.scrollIntoView(false);"
-        >
+        <a class="shopping-cart-btn">
           <i class="fas fa-shopping-cart"></i> Kundvagn (
+          <!-- <span class="items-cart-ctr"></span> -->
           <span class="items-cart-ctr"></span>
           )
         </a>
       </section>
-
       <!-- ****** courses table ****** -->
-      <section id="tableView">
+      <section>
         <section>
-          <div class="table-container">
+          <div class="table-courses-container">
             <table>
               <thead>
                 <tr>
@@ -79,7 +81,7 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody id="courses-table-content">
+              <tbody id="table-courses-content">
                 <!-- <tr>
                   <td>${course.id}</td>
                   <td>${course.title}</td>
@@ -134,6 +136,7 @@
       </div>
       <p>WestCoast Education &copy; 2021, All Rights Reserved</p>
     </footer>
+    <div class="overlay hidden"></div>
     <script src="../../scripts/script.js"></script>
     <script src="/app.js"></script>
   </body>
