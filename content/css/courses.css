@@ -25,19 +25,6 @@
 }
 
 /******* shopping cart modal *******/
-.hidden {
-  display: none;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 170%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 .modal {
   position: fixed;
   top: 50%;
@@ -45,19 +32,76 @@
   border-radius: 3px;
   transform: translate(-50%, -50%);
   max-width: 60rem;
-  width: 50%;
+  width: 90%;
   height: 80%;
   background-color: var(--light-color);
   z-index: 1;
+  /* padding: 0px; */
+  /* max-height: 225px;
+  max-width:  200px;  */
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 
 .modal-container {
-  margin: 2rem;
+  /* overflow: 1,2; */
+  /* overflow-y: scroll; */
+  /* margin: 2rem; */
+  /* overflow: scroll; */
+  /* display: inline-block;
+  width: auto; */
+}
+
+.modal-container table {
+  /* margin-top: 1rem; */
+  border-collapse: collapse;
+  background-color: var(--light-color);
+  width: 100%;
+  height: 100%;
+  /* min-width: 678px; */
+
+  /* table-layout: fixed;
+  word-wrap: break-word; */
+  /* height: 500px; */
+  /* max-height: 500px; */
+  /* overflow: visible;
+  max-height: calc(100vh - 100px); */
+  /* max-height: 80vh; overflow: auto; */
 }
 
 .modal-container th {
+  text-align: left;
+  padding: 10px 5px;
   font-weight: 400;
   font-size: medium;
+  /* overflow: scroll; */
+  /* overflow: scroll; */
+}
+
+.modal-container td {
+  color: var(--secondary-color);
+  /* padding: 1px; */
+  border-bottom: solid 1px #e9e8e2;
+}
+
+.modal-container thead {
+  color: #fff;
+  background-color: var(--primary-color);
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+  /* position: absolute;  this does not show overlay outside viewport*/
+  position: fixed; 
+  viewport-fit: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 170%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .close-modal {
@@ -128,6 +172,12 @@
   #shopping-cart-bar {
     top: 6.7rem;
   }
+
+   /* .modal-container {
+    overflow: visible;
+     overflow-x: scroll; 
+    
+  }  */
 }
 
 @media (max-width: 759px) {
@@ -135,4 +185,9 @@
     overflow: visible;
     overflow-x: scroll;
   }
+
+   /* .modal-container {
+     overflow: visible; 
+    overflow-x: scroll;
+  }  */
 }
