@@ -1,3 +1,139 @@
+/******* shopping cart modal *******/
+.modal {
+  /* This way it could be display flex or grid or whatever also. */
+  /* display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end; */
+  /* Probably need media queries here */
+  width: 600px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  /* Use this for centering if unknown width/height */
+  transform: translate(-50%, -50%);
+  /* If known, negative margins are probably better (less chance of blurry text). */
+  /* margin: -200px 0 0 -200px; */
+  background: var(--light-color);
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+
+  color: var(--secondary-color);
+}
+.closed {
+  display: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.6);
+}
+.modal-guts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /*gör den scrollbar*/
+
+}
+
+.modal .modal-title {
+  font-size: 2rem;
+  color: var(--secondary-color);
+}
+
+.modal table {
+  border-collapse: collapse;
+  background-color: var(--light-color);
+  width: 97%
+}
+
+.modal th {
+  text-align: left;
+  padding: 5px 5px;
+  font-weight: 400;
+  font-size: medium;
+}
+
+.modal td {
+  color: var(--secondary-color);
+  border-bottom: solid 1px #e9e8e2;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.modal thead {
+  color: #fff;
+  background-color: var(--secondary-color);
+}
+
+.modal {
+  overflow: hidden;
+}
+
+.modal .close-button {
+  opacity: 0.5;
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  /* needs to look OK with or without scrollbar */
+  right: 20px;
+  border: none;
+  outline: none;
+  background: rgb(245, 244, 244);
+  color: var(--secondary-color);
+  padding: 0px 0px;
+  font-size: 2rem;
+}
+
+.modal .close-button:hover,
+.modal .close-button:focus {
+  opacity: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal .to-payment {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  margin-bottom: 2rem;
+  /* border: none; */
+  border-radius: 2px;
+
+  padding: 0.1rem;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: solid 1px var(--secondary-color);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.modal .delete {
+  color: var(--primary-color);
+  cursor: pointer;
+  opacity: 1;
+}
+
+.modal .delete:hover,
+.modal .delete:focus {
+  opacity: 0.7;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /******** shopping cart bar *********/
 #shopping-cart-bar {
   display: flex;
@@ -14,113 +150,14 @@
   cursor: pointer;
 }
 
-.shopping-cart-btn {
+#open-button {
   color: var(--light-color);
   text-decoration: none;
   z-index: 1;
 }
 
-.shopping-cart-btn:hover {
+#open-button:hover {
   opacity: 0.7;
-}
-
-/******* shopping cart modal *******/
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  border-radius: 3px;
-  transform: translate(-50%, -50%);
-  max-width: 60rem;
-  width: 90%;
-  height: 80%;
-  background-color: var(--light-color);
-  z-index: 1;
-  /* padding: 0px; */
-  /* max-height: 225px;
-  max-width:  200px;  */
-  /* margin-left: auto;
-  margin-right: auto; */
-}
-
-.modal-container {
-  /* overflow: 1,2; */
-  /* overflow-y: scroll; */
-  /* margin: 2rem; */
-  /* overflow: scroll; */
-  /* display: inline-block;
-  width: auto; */
-}
-
-.modal-container table {
-  /* margin-top: 1rem; */
-  border-collapse: collapse;
-  background-color: var(--light-color);
-  width: 100%;
-  height: 100%;
-  /* min-width: 678px; */
-
-  /* table-layout: fixed;
-  word-wrap: break-word; */
-  /* height: 500px; */
-  /* max-height: 500px; */
-  /* overflow: visible;
-  max-height: calc(100vh - 100px); */
-  /* max-height: 80vh; overflow: auto; */
-}
-
-.modal-container th {
-  text-align: left;
-  padding: 10px 5px;
-  font-weight: 400;
-  font-size: medium;
-  /* overflow: scroll; */
-  /* overflow: scroll; */
-}
-
-.modal-container td {
-  color: var(--secondary-color);
-  /* padding: 1px; */
-  border-bottom: solid 1px #e9e8e2;
-}
-
-.modal-container thead {
-  color: #fff;
-  background-color: var(--primary-color);
-}
-
-.hidden {
-  display: none;
-}
-
-.overlay {
-  /* position: absolute;  this does not show overlay outside viewport*/
-  position: fixed; 
-  viewport-fit: 100%;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 170%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.close-modal {
-  position: absolute;
-  top: 0;
-  right: 9px;
-  font-size: 2rem;
-  color: #333;
-  cursor: pointer;
-  border: none;
-  background: none;
-  outline: none;
-}
-
-.close-modal:hover,
-.close-modal:focus {
-  opacity: 0.7;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 /******* courses table  *******/
@@ -173,7 +210,7 @@
     top: 6.7rem;
   }
 
-   /* .modal-container {
+  /* .modal-container {
     overflow: visible;
      overflow-x: scroll; 
     
@@ -186,7 +223,7 @@
     overflow-x: scroll;
   }
 
-   /* .modal-container {
+  /* .modal-container {
      overflow: visible; 
     overflow-x: scroll;
   }  */

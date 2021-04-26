@@ -2,435 +2,435 @@
   "kurser": [
     {
       "id": 1,
-      "courseNumber": 1001,
       "title": "JavaScript: Introduktion",
       "description": "En grundkurs i JavaScript",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 2,
-      "courseNumber": 1002,
       "title": "JavaScript fördjupningkurs 1",
       "description": "Fördjupningskurs i JavaScript",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "5999"
     },
     {
       "id": 3,
-      "courseNumber": 1003,
       "title": "JavaScript fördjupningkurs 2",
       "description": "Fördjupningskurs i JavaScript",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "5999"
     },
     {
       "id": 4,
-      "courseNumber": 1004,
       "title": "JavaScript fördjupningkurs 3",
       "description": "Fördjupningskurs i JavaScript",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 5,
-      "courseNumber": 1005,
       "title": "CSS: Introduktion",
       "description": "Introduktion i CSS",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4799"
     },
     {
       "id": 6,
-      "courseNumber": 1006,
       "title": "CSS fördjupningkurs 1",
       "description": "Fördjupningskurs i CSS",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 7,
-      "courseNumber": 1007,
       "title": "CSS fördjupningkurs 2",
       "description": "Fördjupningskurs i CSS",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 8,
-      "courseNumber": 1008,
       "title": "CSS fördjupningkurs 3",
       "description": "Fördjupningskurs i CSS",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 9,
-      "courseNumber": 1009,
       "title": "HTML: Introduktion",
       "description": "Introduktion i HTML",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "2999"
     },
     {
       "id": 10,
-      "courseNumber": 1010,
       "title": "HTML fördjupningkurs 1",
       "description": "Fördjupningskurs i HTML",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "3999"
     },
     {
       "id": 11,
-      "courseNumber": 1011,
       "title": "HTML fördjupningkurs 2",
       "description": "Fördjupningskurs i HTML",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 12,
-      "courseNumber": 1012,
       "title": "HTML fördjupningkurs 3",
       "description": "Fördjupningskurs i HTML",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 13,
-      "courseNumber": 1013,
       "title": "C#: Introduktion",
       "description": "Introduktion i C#",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "6999"
     },
     {
       "id": 14,
-      "courseNumber": 1014,
       "title": "C# fördjupningkurs 1",
       "description": "Fördjupningskurs i C#",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "5599"
     },
     {
       "id": 15,
-      "courseNumber": 1015,
       "title": "C# fördjupningkurs 2",
       "description": "Fördjupningskurs i C#",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 16,
-      "courseNumber": 1016,
       "title": "C# fördjupningkurs 3",
       "description": "Fördjupningskurs i C#",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 17,
-      "courseNumber": 1017,
       "title": "Databaser SQL Server: Introduktion",
       "description": "Fördjupningskurs i Databaser SQL Server",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "3999"
     },
     {
       "id": 18,
-      "courseNumber": 1018,
       "title": "Databaser SQL Server fördjupningkurs 1",
       "description": "Fördjupningskurs i Databaser SQL Server",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "3999"
     },
     {
       "id": 19,
-      "courseNumber": 1019,
       "title": "Databaser SQL Server fördjupningkurs 2",
       "description": "Fördjupningskurs i Databaser SQL Server",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 20,
-      "courseNumber": 1020,
       "title": "Databaser SQL Server fördjupningkurs 3",
       "description": "Fördjupningskurs i Databaser SQL Server",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "4999"
     },
     {
       "id": 21,
-      "courseNumber": 1021,
       "title": "Agil Utveckling: Introduktion",
       "description": "Introduktion i Agil Utveckling",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "7999"
     },
     {
       "id": 22,
-      "courseNumber": 1022,
       "title": "Agil Utveckling fördjupningkurs 1",
       "description": "Fördjupningskurs i Agil Utveckling",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "7999"
     },
     {
       "id": 23,
-      "courseNumber": 1023,
       "title": "Agil Utveckling fördjupningkurs 2",
       "description": "Fördjupningskurs i Agil Utveckling",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "7999"
     },
     {
       "id": 24,
-      "courseNumber": 1024,
       "title": "Agil Utveckling fördjupningkurs 3",
       "description": "Fördjupningskurs i Agil Utveckling",
       "length": 40,
       "category": "Programmering",
-      "typ": "klassrumskurs"
+      "type": "klassrumskurs",
+      "price": "7999"
     },
     {
       "id": 25,
-      "courseNumber": 1025,
       "title": "JavaScript: Introduktion",
       "description": "Introduktion i JavaScript",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "399"
     },
     {
       "id": 26,
-      "courseNumber": 1026,
       "title": "JavaScript fördjupningkurs 1",
       "description": "Fördjupningskurs i JavaScript",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     },
     {
       "id": 27,
-      "courseNumber": 1027,
       "title": "JavaScript fördjupningkurs 2",
       "description": "Fördjupningskurs i JavaScript",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     },
     {
       "id": 28,
-      "courseNumber": 1028,
       "title": "JavaScript fördjupningkurs 3",
       "description": "Fördjupningskurs i JavaScript",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     },
     {
       "id": 29,
-      "courseNumber": 1029,
       "title": "CSS: Introduktion",
       "description": "Introduktion i CSS",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "299"
     },
     {
       "id": 30,
-      "courseNumber": 1030,
       "title": "CSS fördjupningkurs 1",
       "description": "Fördjupningskurs i CSS",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "299"
     },
     {
       "id": 31,
-      "courseNumber": 1031,
       "title": "CSS fördjupningkurs 2",
       "description": "Fördjupningskurs i CSS",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "299"
     },
     {
       "id": 32,
-      "courseNumber": 1032,
       "title": "CSS fördjupningkurs 3",
       "description": "Fördjupningskurs i CSS",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "399"
     },
     {
       "id": 33,
-      "courseNumber": 1033,
       "title": "HTML: Introduktion",
       "description": "Introduktion i HTML",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "199"
     },
     {
       "id": 34,
-      "courseNumber": 1034,
       "title": "HTML fördjupningkurs 1",
       "description": "Fördjupningskurs i HTML",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "299"
     },
     {
       "id": 35,
-      "courseNumber": 1035,
       "title": "HTML fördjupningkurs 2",
       "description": "Fördjupningskurs i HTML",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "299"
     },
     {
       "id": 36,
-      "courseNumber": 1036,
       "title": "HTML fördjupningkurs 3",
       "description": "Fördjupningskurs i HTML",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "399"
     },
     {
       "id": 37,
-      "courseNumber": 1037,
       "title": "C#: Introduktion",
       "description": "Introduktion i C#",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     },
     {
       "id": 38,
-      "courseNumber": 1038,
       "title": "C# fördjupningkurs 1",
       "description": "Fördjupningskurs i C#",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     },
     {
       "id": 39,
-      "courseNumber": 1039,
       "title": "C# fördjupningkurs 2",
       "description": "Fördjupningskurs i C#",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     },
     {
       "id": 40,
-      "courseNumber": 1040,
       "title": "C# fördjupningkurs 3",
       "description": "Fördjupningskurs i C#",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     },
     {
       "id": 41,
-      "courseNumber": 1041,
       "title": "Databaser SQL Server: Introduktion",
       "description": "Introduktion i Databaser SQL Server",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "399"
     },
     {
       "id": 42,
-      "courseNumber": 1042,
       "title": "Databaser SQL Server fördjupningkurs 1",
       "description": "Fördjupningskurs i Databaser SQL Server",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "399"
     },
     {
       "id": 43,
-      "courseNumber": 1043,
       "title": "Databaser SQL Server fördjupningkurs 2",
       "description": "Fördjupningskurs i Databaser SQL Server",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "399"
     },
     {
       "id": 44,
-      "courseNumber": 1044,
       "title": "Databaser SQL Server fördjupningkurs 3",
       "description": "Fördjupningskurs i Databaser SQL Server",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "399"
     },
     {
       "id": 45,
-      "courseNumber": 1045,
       "title": "Agil Utveckling: Introduktion",
       "description": "Introduktion i Agil Utveckling",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     },
     {
       "id": 46,
-      "courseNumber": 1046,
       "title": "Agil Utveckling fördjupningkurs 1",
       "description": "Fördjupningskurs i Agil Utveckling",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     },
     {
       "id": 47,
-      "courseNumber": 1047,
       "title": "Agil Utveckling fördjupningkurs 2",
       "description": "Fördjupningskurs i Agil Utveckling",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     },
     {
       "id": 48,
-      "courseNumber": 1048,
       "title": "Agil Utveckling fördjupningkurs 3",
       "description": "Fördjupningskurs i Agil Utveckling",
       "length": 10,
       "category": "Programmering",
-      "typ": "ondemandkurs"
+      "type": "ondemandkurs",
+      "price": "499"
     }
   ]
 }

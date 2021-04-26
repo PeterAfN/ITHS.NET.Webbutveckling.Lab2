@@ -1,93 +1,73 @@
 "use strict";
 
-const tableShoppingCartContent = document.querySelector("#shopping-cart-content");
-
+const tableShoppingCartContent = document.querySelector(
+  "#shopping-cart-content"
+);
 const tableCoursesContent = document.querySelector("#table-courses-content");
-// const tableView = document.querySelector("#tableView");
 const shoppingCartItemsCtr = document.querySelector(".items-cart-ctr");
-const shoppingCartButton = document.querySelector(".shopping-cart-btn");
-const modalDialog = document.querySelector('.modal');
-const overlay = document.querySelector('.overlay');
-const closeModal = document.querySelector('.close-modal');
-// ****************************************************
-let bodyElement = document.getElementsByTagName('body')[0];
 
-function addCourseToShoppingCart(courseId) {
-  const index = courses.findIndex(course => course.id == courseId);
-  tableShoppingCartContent.insertAdjacentHTML(
-    "beforeend",
-    `
-        <tr>
-          <td>${courses[index].id}</td>
-          <td>${courses[index].title}</td>
-          <td>0</td>
-          <td>Pris</td>
-          <td></td>
-        </tr>
-      `
-  );
-  //   // console.log(rows);
-  // const index = courses.findIndex(course => course.id == courseId);
-  // // console.log(rows[index]);
-  // // const course = rows.find(course => course.id == '4');
-  // // console.log(course.title);
-  // console.log(courses[index]);
-}
+const modal = document.querySelector("#modal");
+const modalOverlay = document.querySelector("#modal-overlay");
+const closeButton = document.querySelector("#close-button");
+const openButton = document.querySelector("#open-button");
 
-function addEventListenersToTableButton() {
-  const tableRows = document.querySelectorAll(".table-courses-container .add");
+//-------------- methods for shopping cart --------------
 
-  tableRows.forEach((item) => {
-    const courseId = item.parentNode.firstElementChild.firstChild.nodeValue;
-    item.addEventListener("click", () => {
-      updateShoppingCartBarCounter(courseId);
-      addCourseToShoppingCart(courseId);
-    });
+function addEventListenerToNewItem() {
+  const item = document.querySelectorAll(".modal .delete");
+  const lastItem = item[item.length - 1];
+  const id =
+    lastItem.parentNode.parentNode.firstElementChild.firstChild.nodeValue;
+    lastItem.addEventListener("click", () => {
+    DeleteRow(id);
   });
 }
 
-let counter = 0;
+function DeleteRow(trashcan) {
+  let searcString = `.modal #row${trashcan}`;
+  const selectedRow = document.querySelector(searcString);
+  selectedRow.remove();
+  updateShoppingCartBarCounter(false);
+}
 
-function updateShoppingCartBarCounter(course) {
-  counter += 1;
-  shoppingCartItemsCtr.innerHTML = "";
-  shoppingCartItemsCtr.insertAdjacentHTML(
+function addCourseToShoppingCart(courseId) {
+  const index = courses.findIndex((course) => course.id == courseId);
+  tableShoppingCartContent.insertAdjacentHTML(
     "beforeend",
     `
-      ${counter} ${course}
-    `
+        <tr id="row${index + 1}">
+          <td>${courses[index].id}</td>
+          <td>${courses[index].title}</td>
+          <td>${courses[index].price}</td>
+          <td>0</td>
+          <td><i class="far fa-trash-alt delete"></i></td>
+        </tr>
+      `
   );
 }
 
-function hideModal() {
-  // document.body.style.overflow = 'visible'; //unlock scrolling
-  // modal.style.display = "none";
-  modalDialog.classList.add('hidden');
-  overlay.classList.add('hidden');
-}
+//-------------- methods for closing and opening modal form --------------
 
-function showModal() {
-  // document.body.style.overflow = 'hidden'; //lock scrolling
-  // modal.style.display = "block";
-  overlay.classList.remove('hidden');
-  modalDialog.classList.remove('hidden');
-}
-
-shoppingCartButton.addEventListener("click", () => {
-  showModal();
+closeButton.addEventListener("click", function () {
+  ToggleModal();
 });
 
-closeModal.addEventListener("click", hideModal);
+openButton.addEventListener("click", function () {
+  ToggleModal();
+});
 
-overlay.addEventListener('click', hideModal);
-
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') {
-    if (!modalDialog.classList.contains('hidden')) {
-      quitModal();
-    }
+window.onclick = function (event) {
+  if (event.target == modalOverlay) {
+    ToggleModal();
   }
-});
+};
+
+function ToggleModal() {
+  modal.classList.toggle("closed");
+  modalOverlay.classList.toggle("closed");
+}
+
+//-------------- methods for courses table --------------
 
 createAllTables();
 
@@ -111,6 +91,19 @@ function createTableCourses(data) {
   addEventListenersToTableButton();
 }
 
+function addEventListenersToTableButton() {
+  const tableRows = document.querySelectorAll(".table-courses-container .add");
+
+  tableRows.forEach((item) => {
+    const courseId = item.parentNode.firstElementChild.firstChild.nodeValue;
+    item.addEventListener("click", () => {
+      updateShoppingCartBarCounter(true);
+      addCourseToShoppingCart(courseId);
+      addEventListenerToNewItem();
+    });
+  });
+}
+
 function AddCoursesToPage(course) {
   tableCoursesContent.insertAdjacentHTML(
     "beforeend",
@@ -121,10 +114,25 @@ function AddCoursesToPage(course) {
           <td>${course.description}</td>
           <td>${course.category}</td>
           <td>${course.length}</td>
-          <td>${course.typ}</td>
-          <td>${course.courseNumber}</td>
+          <td>${course.type}</td>
+          <td>${course.price}</td>
           <td class="cart-btn-table add">Lägg i kundvagn</td>
         </tr>
       `
+  );
+}
+
+//-------------- methods for shopping cart bar--------------
+
+let counter = 0;
+function updateShoppingCartBarCounter(add) {
+  if (add === true ) counter += 1;
+  else counter -= 1;
+  shoppingCartItemsCtr.innerHTML = "";
+  shoppingCartItemsCtr.insertAdjacentHTML(
+    "beforeend",
+    `
+      ${counter}
+    `
   );
 }
