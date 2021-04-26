@@ -13,37 +13,81 @@ const openButton = document.querySelector("#open-button");
 
 //-------------- methods for shopping cart --------------
 
+function updateTotalPrice(add, courseId) {
+  let searcString = ".modal .price-total";
+  const element = document.querySelector(searcString);
+  let priceTotalCurrent = element.textContent;
+
+  let indexNewItem = shoppingCartItems.findIndex(
+    (item) => item.id === courseId + 1
+  );
+  let priceNewItem = shoppingCartItems[indexNewItem].price;
+
+  if (add === true) {
+    element.textContent = Number(priceTotalCurrent) + Number(priceNewItem);
+  } else {
+    element.textContent = Number(priceTotalCurrent) - Number(priceNewItem);
+  }
+}
+
 function addEventListenerToNewItem() {
   const item = document.querySelectorAll(".modal .delete");
   const lastItem = item[item.length - 1];
   const id =
     lastItem.parentNode.parentNode.firstElementChild.firstChild.nodeValue;
-    lastItem.addEventListener("click", () => {
-    DeleteRow(id);
+  lastItem.addEventListener("click", () => {
+    DeleteRowFromHTML(id);
+    DeleteAllOccurancesFromArray(id);
   });
 }
 
-function DeleteRow(trashcan) {
-  let searcString = `.modal #row${trashcan}`;
+function DeleteRowFromHTML(id) {
+  let searcString = `.modal #row${id}`;
   const selectedRow = document.querySelector(searcString);
-  selectedRow.remove();
-  updateShoppingCartBarCounter(false);
+  if (selectedRow !== null) selectedRow.remove();
 }
+
+function DeleteAllOccurancesFromArray(id) {
+  let item = shoppingCartItems.findIndex((item) => item.id == id);
+  while (item != -1) {
+    updateTotalPrice(false, id - 1);
+    shoppingCartItems.splice(item, 1);
+    item = shoppingCartItems.findIndex((item) => item.id == id);
+    updateShoppingCartBarCounter(false);
+  }
+}
+
+let shoppingCartItems = [];
 
 function addCourseToShoppingCart(courseId) {
   const index = courses.findIndex((course) => course.id == courseId);
-  tableShoppingCartContent.insertAdjacentHTML(
-    "beforeend",
-    `
-        <tr id="row${index + 1}">
-          <td>${courses[index].id}</td>
-          <td>${courses[index].title}</td>
-          <td>${courses[index].price}</td>
-          <td>0</td>
-          <td><i class="far fa-trash-alt delete"></i></td>
-        </tr>
-      `
+  let existAlready = shoppingCartItems.findIndex(
+    (course) => course.id == courseId
   );
+
+  if (existAlready !== -1) {
+    let searcString = `.modal #row${index + 1}`;
+    let amount = document.querySelector(searcString);
+    let nr = amount.lastElementChild.previousElementSibling.textContent;
+    amount.lastElementChild.previousElementSibling.textContent = Number(nr) + 1;
+    // console.log(amount.lastElementChild.previousElementSibling.textContent);
+  } else {
+    tableShoppingCartContent.insertAdjacentHTML(
+      "beforeend",
+      `
+          <tr id="row${index + 1}">
+            <td>${courses[index].id}</td>
+            <td>${courses[index].title}</td>
+            <td>${courses[index].price}</td>
+            <td>1</td>
+            <td><i class="far fa-trash-alt delete"></i></td>
+          </tr>
+        `
+    );
+  }
+
+  shoppingCartItems.push(courses[index]);
+  updateTotalPrice(true, index);
 }
 
 //-------------- methods for closing and opening modal form --------------
@@ -81,7 +125,7 @@ function getDataCourses() {
     .then((data) => createTableCourses(data));
 }
 
-var courses = [];
+let courses = [];
 
 function createTableCourses(data) {
   courses = data;
@@ -126,7 +170,7 @@ function AddCoursesToPage(course) {
 
 let counter = 0;
 function updateShoppingCartBarCounter(add) {
-  if (add === true ) counter += 1;
+  if (add === true) counter += 1;
   else counter -= 1;
   shoppingCartItemsCtr.innerHTML = "";
   shoppingCartItemsCtr.insertAdjacentHTML(
