@@ -8,8 +8,52 @@ const shoppingCartItemsCtr = document.querySelector(".items-cart-ctr");
 
 const modal = document.querySelector("#modal");
 const modalOverlay = document.querySelector("#modal-overlay");
+const modalOverlayBuy = document.querySelector(".modal-overlay-buy");
 const closeButton = document.querySelector("#close-button");
 const openButton = document.querySelector("#open-button");
+
+//-------------- methods for showing buy confirmation modal --------------
+
+addEventListenerToBuyButton();
+
+function addEventListenerToBuyButton() {
+  let searcString = ".modal .btn";
+  const button = document.querySelector(searcString);
+
+  button.addEventListener("click", () => {
+    openModalBuyConfirmation();
+  });
+}
+
+function openModalBuyConfirmation() {
+  modalOverlayBuy.insertAdjacentHTML(
+    "beforeend",
+    `
+      <p>Tack för ditt köp! Du kommer även att få ett bekräftelsemail som bekräftar köpet!</p>
+    `
+  );
+}
+
+//-------------- methods for closing and opening modal form --------------
+
+closeButton.addEventListener("click", function () {
+  ToggleModal();
+});
+
+openButton.addEventListener("click", function () {
+  ToggleModal();
+});
+
+window.onclick = function (event) {
+  if (event.target == modalOverlay) {
+    ToggleModal();
+  }
+};
+
+function ToggleModalBuy() {
+  modal.classList.toggle("closed");
+  modalOverlay.classList.toggle("closed");
+}
 
 //-------------- methods for shopping cart --------------
 
