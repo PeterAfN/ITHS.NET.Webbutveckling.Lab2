@@ -8,75 +8,104 @@ const shoppingCartItemsCtr = document.querySelector(".items-cart-ctr");
 
 const modal = document.querySelector("#modal");
 const modalBuy = document.querySelector(".modal-buy");
+const modalAdd = document.querySelector(".modal-add");
 const modalOverlay = document.querySelector("#modal-overlay");
 const modalOverlayBuy = document.querySelector(".modal-overlay-buy");
+const modalOverlayAdd = document.querySelector(".modal-overlay-add");
 const closeButton = document.querySelector("#close-button");
 const closeButtonBuy = document.querySelector("#close-button-buy");
+const closeButtonAdd = document.querySelector("#close-button-add");
 const openButton = document.querySelector("#open-button");
 const openPaymentButton = document.querySelector(".to-payment");
+const addButton = document.querySelector("#add-button");
+const saveButton = document.querySelector("#save");
+const cancelButton = document.querySelector("#cancel");
 
-//#region -------------- Methods for adding a new course
+//#region -------------- Add course Modal - Opening and Closing
 
-async function AddVehicle() {
-  const vehicle = {
-    registrationNumber: regNoInput.value,
-    make: makeInput.value,
-    model: modelInput.value,
-    modelYear: modelYearInput.value,
-    mileage: mileageInput.value,
-    value: valueInput.value,
-  };
-
-  const response = await fetch(`${baseUrl}`, {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(vehicle)
-  });
-
-  if(!response.ok) throw new Error(response.statusText);
-
-  return response.json();
-};
-
-
-addNewButton.addEventListener('click', (e) => {
-  e.preventDefault();
-
-  addVehicleView.classList.remove('hidden');
-  overlay.classList.remove('hidden');
-  modalDialog.classList.remove('hidden');
+addButton.addEventListener("click", function () {
+  ToggleModalAdd();
 });
 
-saveButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  AddVehicle()
-    .then(data => {
-
-      //TODO: Flytta till en egen funktion...
-      addVehicleView.classList.add('hidden');
-      tableView.classList.remove('hidden');
-      modalDialog.classList.add('hidden');
-      overlay.classList.add('hidden');
-      regNoInput.value = '';
-      makeInput.value = '';
-      modelInput.value = '';
-      modelYearInput.value = '';
-      mileageInput.value = '';
-      valueInput.value = '';
-      loadVehicles()
-      // .then(data => createTable(data));
-    })
-    .catch(err => console.log(err));
+saveButton.addEventListener("click", function () {
+  ToggleModalAdd();
 });
 
+cancelButton.addEventListener("click", function () {
+  ToggleModalAdd();
+});
+
+closeButtonAdd.addEventListener("click", function () {
+  ToggleModalAdd();
+});
+
+function ToggleModalAdd() {
+  modalAdd.classList.toggle("closed-add");
+  modalOverlayAdd.classList.toggle("close-overlay-add");
+}
+
+//#endregion -------------- Add course Modal - Opening and Closing
+
+//#region -------------- Add course Modal
+
+// async function AddVehicle() {
+//   const vehicle = {
+//     registrationNumber: regNoInput.value,
+//     make: makeInput.value,
+//     model: modelInput.value,
+//     modelYear: modelYearInput.value,
+//     mileage: mileageInput.value,
+//     value: valueInput.value,
+//   };
+
+//   const response = await fetch(`${baseUrl}`, {
+//     method: 'POST',
+//     mode: 'cors',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(vehicle)
+//   });
+
+//   if(!response.ok) throw new Error(response.statusText);
+
+//   return response.json();
+// };
 
 
-//#endregion -------------- Methods for adding a new course
+// addNewButton.addEventListener('click', (e) => {
+//   e.preventDefault();
 
-//#region -------------- Methods for showing buy confirmation modal
+//   addVehicleView.classList.remove('hidden');
+//   overlay.classList.remove('hidden');
+//   modalDialog.classList.remove('hidden');
+// });
+
+// saveButton.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   AddVehicle()
+//     .then(data => {
+
+//       //TODO: Flytta till en egen funktion...
+//       addVehicleView.classList.add('hidden');
+//       tableView.classList.remove('hidden');
+//       modalDialog.classList.add('hidden');
+//       overlay.classList.add('hidden');
+//       regNoInput.value = '';
+//       makeInput.value = '';
+//       modelInput.value = '';
+//       modelYearInput.value = '';
+//       mileageInput.value = '';
+//       valueInput.value = '';
+//       loadVehicles()
+//       // .then(data => createTable(data));
+//     })
+//     .catch(err => console.log(err));
+// });
+
+//#endregion -------------- Add course Modal
+
+//#region -------------- Buy confirmation Modal
 
 addEventListenerToBuyButton();
 
@@ -101,9 +130,9 @@ function ToggleModalBuy() {
   modalBuy.classList.toggle("closed-buy");
   modalOverlayBuy.classList.toggle("close-overlay-buy");
 }
-//#endregion -------------- Methods for showing buy confirmation modal
+//#endregion -------------- Buy confirmation Modal
 
-//#region -------------- Methods for shopping cart
+//#region -------------- Shopping Cart Modal
 
 function updateTotalPrice(add, courseId) {
   let searcString = ".modal .price-total";
@@ -182,9 +211,9 @@ function addCourseToShoppingCart(courseId) {
   updateTotalPrice(true, index);
 }
 
-//#endregion ----------- Methods for shopping cart
+//#endregion ----------- Shopping Cart Modal
 
-//#region -------------- Methods for closing and opening shopping cart modal
+//#region -------------- Shopping Cart Modal - Opening and Closing
 
 closeButton.addEventListener("click", function () {
   ToggleModal();
@@ -202,9 +231,10 @@ openPaymentButton.addEventListener("click", function () {
 window.onclick = function (event) {
   if (event.target === modalOverlay) {
     ToggleModal();
-  }
-  else if (event.target === modalOverlayBuy) {
+  } else if (event.target === modalOverlayBuy) {
     ToggleModalBuy();
+  } else if (event.target === modalOverlayAdd) {
+    ToggleModalAdd();
   }
 };
 
@@ -213,9 +243,9 @@ function ToggleModal() {
   modalOverlay.classList.toggle("closed");
 }
 
-//#endregion ----------- Methods for closing and shopping cart modal
+//#endregion ----------- Shopping Cart Modal - Opening and Closing
 
-//#region -------------- Methods for courses table
+//#region -------------- Courses
 
 createAllTables();
 
@@ -270,9 +300,9 @@ function AddCoursesToPage(course) {
   );
 }
 
-//#endregion ----------- Methods for shopping cart bar
+//#endregion ----------- Courses
 
-//#region -------------- Shopping cart bar
+//#region -------------- Shopping Cart bar
 
 let counter = 0;
 function updateShoppingCartBarCounter(add) {
@@ -287,4 +317,4 @@ function updateShoppingCartBarCounter(add) {
   );
 }
 
-//#endregion -------------Shopping cart bar
+//#endregion ------------- Shopping Cart bar
