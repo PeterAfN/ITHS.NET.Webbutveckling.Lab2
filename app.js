@@ -15,11 +15,68 @@ const closeButtonBuy = document.querySelector("#close-button-buy");
 const openButton = document.querySelector("#open-button");
 const openPaymentButton = document.querySelector(".to-payment");
 
+//#region -------------- Methods for adding a new course
+
+async function AddVehicle() {
+  const vehicle = {
+    registrationNumber: regNoInput.value,
+    make: makeInput.value,
+    model: modelInput.value,
+    modelYear: modelYearInput.value,
+    mileage: mileageInput.value,
+    value: valueInput.value,
+  };
+
+  const response = await fetch(`${baseUrl}`, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(vehicle)
+  });
+
+  if(!response.ok) throw new Error(response.statusText);
+
+  return response.json();
+};
+
+
+addNewButton.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  addVehicleView.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+  modalDialog.classList.remove('hidden');
+});
+
+saveButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  AddVehicle()
+    .then(data => {
+
+      //TODO: Flytta till en egen funktion...
+      addVehicleView.classList.add('hidden');
+      tableView.classList.remove('hidden');
+      modalDialog.classList.add('hidden');
+      overlay.classList.add('hidden');
+      regNoInput.value = '';
+      makeInput.value = '';
+      modelInput.value = '';
+      modelYearInput.value = '';
+      mileageInput.value = '';
+      valueInput.value = '';
+      loadVehicles()
+      // .then(data => createTable(data));
+    })
+    .catch(err => console.log(err));
+});
+
+
+
+//#endregion -------------- Methods for adding a new course
+
 //#region -------------- Methods for showing buy confirmation modal
-
-
-
-
 
 addEventListenerToBuyButton();
 
@@ -45,9 +102,6 @@ function ToggleModalBuy() {
   modalOverlayBuy.classList.toggle("close-overlay-buy");
 }
 //#endregion -------------- Methods for showing buy confirmation modal
-
-
-
 
 //#region -------------- Methods for shopping cart
 
@@ -129,6 +183,7 @@ function addCourseToShoppingCart(courseId) {
 }
 
 //#endregion ----------- Methods for shopping cart
+
 //#region -------------- Methods for closing and opening shopping cart modal
 
 closeButton.addEventListener("click", function () {
@@ -159,6 +214,7 @@ function ToggleModal() {
 }
 
 //#endregion ----------- Methods for closing and shopping cart modal
+
 //#region -------------- Methods for courses table
 
 createAllTables();
@@ -215,6 +271,7 @@ function AddCoursesToPage(course) {
 }
 
 //#endregion ----------- Methods for shopping cart bar
+
 //#region -------------- Shopping cart bar
 
 let counter = 0;
