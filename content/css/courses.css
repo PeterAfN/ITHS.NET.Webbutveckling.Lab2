@@ -1,27 +1,3 @@
-/******* modal buy *******/
-.modal-overlay-buy  {
-  width: 600px;
-  max-width: 100%;
-  height: 400px;
-  max-height: 100%;
-  position: fixed;
-  z-index: 100;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--light-color);
-  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
-  color: var(--secondary-color);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 150;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-
 /******* shopping cart modal *******/
 .modal {
   /* This way it could be display flex or grid or whatever also. */
@@ -47,11 +23,54 @@
 
   color: var(--secondary-color);
 }
-.closed {
+
+.modal-buy {
+  width: 400px;
+  max-width: 100%;
+  height: 200px;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  /* Use this for centering if unknown width/height */
+  transform: translate(-50%, -50%);
+  background: var(--light-color);
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+  color: var(--secondary-color);
+}
+
+.modal-buy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-buy p {
+  width: 80%;
+}
+
+.modal-buy .close-buy-confirmation {
+  cursor: pointer;
+  width: 120px;
+  border-radius: 2px;
+  padding: 0.1rem;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border: solid 1px var(--secondary-color);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.closed,
+.closed-buy,
+.close-overlay-buy {
   display: none;
 }
 
-.modal-overlay {
+.modal-overlay,
+.modal-overlay-buy {
   position: fixed;
   top: 0;
   left: 0;
@@ -70,7 +89,6 @@
   width: 100%;
   height: 100%;
   overflow: auto; /*gör den scrollbar*/
-
 }
 
 .modal .modal-title {
@@ -81,7 +99,7 @@
 .modal table {
   border-collapse: collapse;
   background-color: var(--light-color);
-  width: 97%
+  width: 97%;
 }
 
 .modal th {
@@ -103,11 +121,13 @@
   background-color: var(--secondary-color);
 }
 
-.modal {
+.modal,
+.modal-buy {
   overflow: hidden;
 }
 
-.modal .close-button {
+.modal .close-button,
+.modal-buy #close-button-buy {
   opacity: 0.5;
   position: absolute;
   z-index: 1;
@@ -123,7 +143,9 @@
 }
 
 .modal .close-button:hover,
-.modal .close-button:focus {
+.modal .close-button:focus,
+.modal-buy #close-button-buy:hover,
+.modal-buy #close-button-buy:focus {
   opacity: 1;
   text-decoration: none;
   cursor: pointer;

@@ -7,55 +7,49 @@ const tableCoursesContent = document.querySelector("#table-courses-content");
 const shoppingCartItemsCtr = document.querySelector(".items-cart-ctr");
 
 const modal = document.querySelector("#modal");
+const modalBuy = document.querySelector(".modal-buy");
 const modalOverlay = document.querySelector("#modal-overlay");
 const modalOverlayBuy = document.querySelector(".modal-overlay-buy");
 const closeButton = document.querySelector("#close-button");
+const closeButtonBuy = document.querySelector("#close-button-buy");
 const openButton = document.querySelector("#open-button");
+const openPaymentButton = document.querySelector(".to-payment");
 
-//-------------- methods for showing buy confirmation modal --------------
+//#region -------------- Methods for showing buy confirmation modal
+
+
+
+
 
 addEventListenerToBuyButton();
 
 function addEventListenerToBuyButton() {
-  let searcString = ".modal .btn";
+  let searcString = ".modal-buy .close-buy-confirmation";
   const button = document.querySelector(searcString);
 
   button.addEventListener("click", () => {
-    openModalBuyConfirmation();
+    closeModalBuyConfirmation();
   });
 }
 
-function openModalBuyConfirmation() {
-  modalOverlayBuy.insertAdjacentHTML(
-    "beforeend",
-    `
-      <p>Tack för ditt köp! Du kommer även att få ett bekräftelsemail som bekräftar köpet!</p>
-    `
-  );
+function closeModalBuyConfirmation() {
+  ToggleModalBuy();
 }
 
-//-------------- methods for closing and opening modal form --------------
-
-closeButton.addEventListener("click", function () {
-  ToggleModal();
+closeButtonBuy.addEventListener("click", function () {
+  ToggleModalBuy();
 });
-
-openButton.addEventListener("click", function () {
-  ToggleModal();
-});
-
-window.onclick = function (event) {
-  if (event.target == modalOverlay) {
-    ToggleModal();
-  }
-};
 
 function ToggleModalBuy() {
-  modal.classList.toggle("closed");
-  modalOverlay.classList.toggle("closed");
+  modalBuy.classList.toggle("closed-buy");
+  modalOverlayBuy.classList.toggle("close-overlay-buy");
 }
+//#endregion -------------- Methods for showing buy confirmation modal
 
-//-------------- methods for shopping cart --------------
+
+
+
+//#region -------------- Methods for shopping cart
 
 function updateTotalPrice(add, courseId) {
   let searcString = ".modal .price-total";
@@ -134,7 +128,8 @@ function addCourseToShoppingCart(courseId) {
   updateTotalPrice(true, index);
 }
 
-//-------------- methods for closing and opening modal form --------------
+//#endregion ----------- Methods for shopping cart
+//#region -------------- Methods for closing and opening shopping cart modal
 
 closeButton.addEventListener("click", function () {
   ToggleModal();
@@ -144,9 +139,17 @@ openButton.addEventListener("click", function () {
   ToggleModal();
 });
 
+openPaymentButton.addEventListener("click", function () {
+  ToggleModal();
+  ToggleModalBuy();
+});
+
 window.onclick = function (event) {
-  if (event.target == modalOverlay) {
+  if (event.target === modalOverlay) {
     ToggleModal();
+  }
+  else if (event.target === modalOverlayBuy) {
+    ToggleModalBuy();
   }
 };
 
@@ -155,7 +158,8 @@ function ToggleModal() {
   modalOverlay.classList.toggle("closed");
 }
 
-//-------------- methods for courses table --------------
+//#endregion ----------- Methods for closing and shopping cart modal
+//#region -------------- Methods for courses table
 
 createAllTables();
 
@@ -210,7 +214,8 @@ function AddCoursesToPage(course) {
   );
 }
 
-//-------------- methods for shopping cart bar--------------
+//#endregion ----------- Methods for shopping cart bar
+//#region -------------- Shopping cart bar
 
 let counter = 0;
 function updateShoppingCartBarCounter(add) {
@@ -224,3 +229,5 @@ function updateShoppingCartBarCounter(add) {
     `
   );
 }
+
+//#endregion -------------Shopping cart bar
