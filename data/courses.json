@@ -431,6 +431,15 @@
       "category": "Programmering",
       "type": "ondemandkurs",
       "price": "499"
+    },
+    {
+      "id": "66",
+      "title": "t",
+      "description": "t2",
+      "category": "t3",
+      "length": "5",
+      "type": "t6",
+      "price": "7"
     }
   ]
 }

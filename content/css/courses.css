@@ -1,4 +1,8 @@
-/******* shopping cart modal *******/
+/*#region | Add */
+
+/*#endregion | Add */
+
+/*#region | Modal ('Shopping Cart' - 'Buy Confirmation' - 'Add Courses') */
 .modal {
   width: 600px;
   max-width: 100%;
@@ -14,7 +18,8 @@
   color: var(--secondary-color);
 }
 
-.modal-buy {
+.modal-buy,
+.modal-add {
   width: 400px;
   max-width: 100%;
   height: 200px;
@@ -27,9 +32,6 @@
   background: var(--light-color);
   box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
   color: var(--secondary-color);
-}
-
-.modal-buy {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,12 +56,15 @@
 
 .closed,
 .closed-buy,
-.close-overlay-buy {
+.close-overlay-buy,
+.closed-add,
+.close-overlay-add {
   display: none;
 }
 
 .modal-overlay,
-.modal-overlay-buy {
+.modal-overlay-buy,
+.modal-overlay-add {
   position: fixed;
   top: 0;
   left: 0;
@@ -112,12 +117,14 @@
 }
 
 .modal,
-.modal-buy {
+.modal-buy,
+.modal-add {
   overflow: hidden;
 }
 
 .modal .close-button,
-.modal-buy #close-button-buy {
+.modal-buy #close-button-buy,
+.modal-add #close-button-add {
   opacity: 0.5;
   position: absolute;
   z-index: 1;
@@ -135,7 +142,9 @@
 .modal .close-button:hover,
 .modal .close-button:focus,
 .modal-buy #close-button-buy:hover,
-.modal-buy #close-button-buy:focus {
+.modal-buy #close-button-buy:focus,
+.modal-add #close-button-add:hover,
+.modal-add #close-button-add:focus{
   opacity: 1;
   text-decoration: none;
   cursor: pointer;
@@ -170,11 +179,14 @@
   cursor: pointer;
 }
 
-/******** shopping cart bar *********/
+/*#endregion | Modal ('Shopping Cart' - 'Buy Confirmation' - 'Add Courses') */
+
+/*#region | shopping cart bar */
+
 #shopping-cart-bar {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: var(--primary-color);
   color: var(--light-color);
   position: fixed;
@@ -183,20 +195,25 @@
   width: 100%;
   height: 2.4rem;
   opacity: 0.95;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
-#open-button {
+#open-button,
+#add-button {
   color: var(--light-color);
   text-decoration: none;
   z-index: 1;
+  cursor: pointer;
 }
 
-#open-button:hover {
+#open-button:hover,
+#add-button:hover {
   opacity: 0.7;
 }
 
-/******* courses table  *******/
+/*#endregion | shopping cart bar */
+
+/*#region | courses table */
 .table-courses-container table {
   margin-top: 6.8rem;
   border-collapse: collapse;
@@ -236,7 +253,9 @@
   opacity: 0.7;
 }
 
-/******** media queries ********/
+/*#endregion | courses table */
+
+/*#region | media queries */
 @media (max-width: 580px) {
   .table-courses-container {
     margin-top: 37px;
@@ -248,7 +267,7 @@
 
   /* .modal-container {
     overflow: visible;
-     overflow-x: scroll; 
+    overflow-x: scroll; 
     
   }  */
 }
@@ -260,7 +279,9 @@
   }
 
   /* .modal-container {
-     overflow: visible; 
+    overflow: visible; 
     overflow-x: scroll;
   }  */
 }
+
+/*#endregion | media queries */

@@ -1,11 +1,12 @@
 "use strict";
 
+const baseUrl = "http://localhost:3000/kurser/";
+
 const tableShoppingCartContent = document.querySelector(
   "#shopping-cart-content"
 );
 const tableCoursesContent = document.querySelector("#table-courses-content");
 const shoppingCartItemsCtr = document.querySelector(".items-cart-ctr");
-
 const modal = document.querySelector("#modal");
 const modalBuy = document.querySelector(".modal-buy");
 const modalAdd = document.querySelector(".modal-add");
@@ -21,17 +22,30 @@ const addButton = document.querySelector("#add-button");
 const saveButton = document.querySelector("#save");
 const cancelButton = document.querySelector("#cancel");
 
+const idInput = document.querySelector('#id');
+const titleInput = document.querySelector('#title');
+const descriptionInput = document.querySelector('#description');
+const categoryInput = document.querySelector('#category');
+const lengthInput = document.querySelector('#length');
+const typeInput = document.querySelector('#type');
+const priceInput = document.querySelector('#price');
+
 //#region -------------- Add course Modal - Opening and Closing
 
 addButton.addEventListener("click", function () {
   ToggleModalAdd();
 });
 
-saveButton.addEventListener("click", function () {
+saveButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  AddCourse()
+    .then()
+    .catch((err) => console.log(err));
   ToggleModalAdd();
 });
 
-cancelButton.addEventListener("click", function () {
+cancelButton.addEventListener("click", (e) => {
+  e.preventDefault();
   ToggleModalAdd();
 });
 
@@ -48,30 +62,30 @@ function ToggleModalAdd() {
 
 //#region -------------- Add course Modal
 
-// async function AddVehicle() {
-//   const vehicle = {
-//     registrationNumber: regNoInput.value,
-//     make: makeInput.value,
-//     model: modelInput.value,
-//     modelYear: modelYearInput.value,
-//     mileage: mileageInput.value,
-//     value: valueInput.value,
-//   };
+async function AddCourse() {
+  const course = {
+    id: idInput.value,
+    title: titleInput.value,
+    description: descriptionInput.value,
+    category: categoryInput.value,
+    length: lengthInput.value,
+    type: typeInput.value,
+    price: priceInput.value,
+  };
 
-//   const response = await fetch(`${baseUrl}`, {
-//     method: 'POST',
-//     mode: 'cors',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(vehicle)
-//   });
+  const response = await fetch(`${baseUrl}`, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(course),
+  });
 
-//   if(!response.ok) throw new Error(response.statusText);
+  if (!response.ok) throw new Error(response.statusText);
 
-//   return response.json();
-// };
-
+  return response.json();
+}
 
 // addNewButton.addEventListener('click', (e) => {
 //   e.preventDefault();
