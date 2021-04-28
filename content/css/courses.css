@@ -42,7 +42,7 @@
   width: 80%;
 }
 
-.modal-buy .close-buy-confirmation {
+.modal-buy .ok-buy-confirmation {
   cursor: pointer;
   width: 120px;
   border-radius: 2px;
