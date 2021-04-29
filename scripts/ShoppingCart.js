@@ -1,4 +1,4 @@
-//This class is opened from the ShoppingCartBar.js.
+//ShoppingCart.js is opened from the ShoppingCartBar.js navigation bar.
 class ShoppingCart {
 
     constructor() {

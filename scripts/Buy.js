@@ -1,4 +1,4 @@
-//This class is opened from the ShoppingCartBar.js and is the final buy confirmation dialog after the buy was succesfull.
+//Buy.js is opened from the ShoppingCart.js and is the final buy confirmation dialog after the buy was succesfull.
 class Buy {
 
     constructor() {

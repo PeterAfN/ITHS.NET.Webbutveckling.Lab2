@@ -1,4 +1,4 @@
-//From this navigation bar the ShoppingCart.js or Add.js are opened. 
+//From this navigation bar ShoppingCartBar.js the ShoppingCart.js or Add.js are opened. 
 class ShoppingCartBar {
 
   constructor(counter) {

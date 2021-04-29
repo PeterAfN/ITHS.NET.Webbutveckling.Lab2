@@ -1,4 +1,4 @@
-//this class is run when the Courses.html page is shown for the first time.
+//Courses.js is run when the Courses.html page is shown for the first time. This class fetches data from the REST.API and displays it on the page.
 class Courses {
 
     constructor() {

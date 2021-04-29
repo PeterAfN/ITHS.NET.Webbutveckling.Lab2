@@ -1,5 +1,8 @@
 "use strict";
 
+
+//#region  courses.html
+
 let buy = new Buy();
 let add = new Add("http://localhost:3000/kurser/");
 let courses = new Courses();
@@ -26,3 +29,5 @@ function CloseCorrectOverlay (event) {
     add.toggle();
   }
 }
+
+//#endregion  courses.html

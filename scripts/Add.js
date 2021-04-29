@@ -1,4 +1,4 @@
-//This class is opened from the ShoppingCartBar.js and fetches data from the REST.API.
+//Add.js is opened from the ShoppingCartBar.js navigation bar and adds new courses to the REST.API.
 class Add {
 
     constructor(baseUrl) {
