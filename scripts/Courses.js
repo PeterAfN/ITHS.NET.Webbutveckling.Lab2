@@ -1,3 +1,4 @@
+//this class is run when the Courses.html page is shown for the first time.
 class Courses {
 
     constructor() {
@@ -19,6 +20,8 @@ class Courses {
     }
 
     addToPage(course) {
+        const tableCoursesContent = document.querySelector("#table-courses-content");
+
         tableCoursesContent.insertAdjacentHTML(
             "beforeend",
             `

@@ -1,3 +1,4 @@
+//This class is opened from the ShoppingCartBar.js and fetches data from the REST.API.
 class Add {
 
     constructor(baseUrl) {
@@ -67,6 +68,8 @@ class Add {
     }
 
     toggle() {
+        const modalAdd = document.querySelector(".modal-add");
+
         modalAdd.classList.toggle("closed-add");
         modalOverlayAdd.classList.toggle("close-overlay-add");
     }

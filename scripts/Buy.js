@@ -1,3 +1,4 @@
+//This class is opened from the ShoppingCartBar.js and is the final buy confirmation dialog after the buy was succesfull.
 class Buy {
 
     constructor() {
@@ -23,8 +24,9 @@ class Buy {
     }
 
     toggle() {
+        const modalBuy = document.querySelector(".modal-buy");
+
         modalBuy.classList.toggle("closed-buy");
         modalOverlayBuy.classList.toggle("close-overlay-buy");
     }
-
 }

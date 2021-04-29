@@ -1,16 +1,18 @@
+//This class is opened from the ShoppingCartBar.js.
 class ShoppingCart {
 
     constructor() {
-        // this.data = [];
+        this.addEventListeners();
     }
 
-    // get data() {
-    //     return this.data;
-    // }
+    addEventListeners() {
+        const openPaymentButton = document.querySelector(".to-payment");
 
-    // set data(value) {
-    //     this.data = value;
-    // }
+        openPaymentButton.addEventListener("click", () => {
+            this.toggle();
+            buy.toggle();
+        });
+    }
 
     addEventListenerToDelete() {
         const item = document.querySelectorAll(".modal .delete");
@@ -40,6 +42,8 @@ class ShoppingCart {
     }
 
     addCourse(courseId) {
+        const tableShoppingCart = document.querySelector("#shopping-cart-content");
+
         const index = data.findIndex((course) => course.id == courseId);
         let existAlready = shoppingCartItems.findIndex(
             (course) => course.id == courseId
@@ -87,7 +91,9 @@ class ShoppingCart {
     }
 
     toggle() {
+        const modal = document.querySelector("#modal");
+
         modal.classList.toggle("closed");
-        modalOverlay.classList.toggle("closed");
+        modalOverlayShoppingCart.classList.toggle("closed");
     }
 }
