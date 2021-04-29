@@ -1,4 +1,12 @@
-﻿# ITHS.NET.Webbutveckling.Lab2
+Instruktion för att starta den lokala REST-API servern:
+
+Kör detta kommando i terminalen: 
+
+json-server --watch "data\courses.json"      (du ska stå i roten av huvudmappen)
+
+---------------------------------
+
+# ITHS.NET.Webbutveckling.Lab2
  
 Denna lab ingick i kursen "Webbutveckling med .NET 60p" på IT-Högskolan i Göteborg som jag läste våren år 2021.
 
