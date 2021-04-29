@@ -15,7 +15,7 @@ class ShoppingCart {
     }
 
     addEventListenerToDelete() {
-        const item = document.querySelectorAll(".modal .delete");
+        const item = document.querySelectorAll(".modal-shopping-cart .delete");
         const lastItem = item[item.length - 1];
         const id =
             lastItem.parentNode.parentNode.firstElementChild.firstChild.nodeValue;
@@ -26,7 +26,7 @@ class ShoppingCart {
     }
 
     DeleteRowFromHTML(id) {
-        let searcString = `.modal #row${id}`;
+        let searcString = `.modal-shopping-cart #row${id}`;
         const selectedRow = document.querySelector(searcString);
         if (selectedRow !== null) selectedRow.remove();
     }
@@ -50,7 +50,7 @@ class ShoppingCart {
         );
 
         if (existAlready !== -1) {
-            let searcString = `.modal #row${index + 1}`;
+            let searcString = `.modal-shopping-cart #row${index + 1}`;
             let amount = document.querySelector(searcString);
             let nr = amount.lastElementChild.previousElementSibling.textContent;
             amount.lastElementChild.previousElementSibling.textContent = Number(nr) + 1;
@@ -74,7 +74,7 @@ class ShoppingCart {
     }
 
     updateTotalPrice(add, courseId) {
-        let searcString = ".modal .price-total";
+        let searcString = ".modal-shopping-cart .price-total";
         const element = document.querySelector(searcString);
         let priceTotalCurrent = element.textContent;
 
@@ -91,9 +91,9 @@ class ShoppingCart {
     }
 
     toggle() {
-        const modal = document.querySelector("#modal");
+        const modal = document.querySelector(".modal-shopping-cart");
 
-        modal.classList.toggle("closed");
-        modalOverlayShoppingCart.classList.toggle("closed");
+        modal.classList.toggle("closed-shopping-cart");
+        modalOverlayShoppingCart.classList.toggle("closed-shopping-cart");
     }
 }

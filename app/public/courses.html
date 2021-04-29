@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../content/css/styles.css" />
     <link rel="stylesheet" href="../../content/css/utilities.css" />
     <link rel="stylesheet" href="../../content/css/courses.css" />
-    <!-- ****** media queries ****** -->
+    <!--#region - media queries -->
     <link
       rel="stylesheet"
       media="screen and (max-width: 580px)"
@@ -21,23 +21,27 @@
       media="screen and (max-width: 322px)"
       href="../../content/css/mobileSmall.css"
     />
+    <!--#endregion - media queries -->
+    <!--#region - icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
       integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
       crossorigin="anonymous"
     />
+    <!--#endregion - icons -->
+    <!--#region - fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <!--#endregion - fonts -->
     <title>WestCoast Education</title>
   </head>
-
-  <body id="courses-body">
-    <header id="landing">
-      <!--#region | navbar -->
-      <nav id="courses-navbar" class="navbar navbar-courses">
+  <body>
+    <header>
+      <!--#region - ShoppingCartBar.js -->
+      <nav class="navbar">
         <ul>
           <li><a href="../../index.html">Start</a></li>
           <li><a href="./courses.html" class="active">Kurser</a></li>
@@ -49,122 +53,115 @@
           Education<sup>&reg;</sup>
         </h2>
       </nav>
-      <!--#endregion | navbar -->
-    </header>
-    <!--#region | add course modal -->
-
-    <div
-      class="modal-overlay-add close-overlay-add"
-      id="modal-overlay-add"
-    ></div>
-    <div class="modal-add closed-add">
-      <button id="close-button-add">&times;</button>
-      <section id="addVehicle-container" class="hidden">
-        <form>
-          <input id="id" type="text" class="form-control" placeholder="Id" />
-          <input
-            id="title"
-            type="text"
-            class="form-control"
-            placeholder="Title"
-          />
-          <input
-            id="description"
-            type="text"
-            class="form-control"
-            placeholder="Description"
-          />
-          <input
-            id="category"
-            type="text"
-            class="form-control"
-            placeholder="Category"
-          />
-          <input
-            id="length"
-            type="text"
-            class="form-control"
-            placeholder="Length"
-          />
-          <input
-            id="type"
-            type="text"
-            class="form-control"
-            placeholder="Type"
-          />
-          <input
-            id="price"
-            type="text"
-            class="form-control"
-            placeholder="Price"
-          />
-          <div class="buttons">
-            <button class="btn" id="save">Save</button>
-            <button class="btn" id="cancel">Cancel</button>
+      <!--#endregion - ShoppingCartBar.js -->
+      <!--#region - Add.js -->
+      <div class="modal-overlay-add close-overlay-add"></div>
+      <div class="modal-add closed-add">
+        <button id="close-button-add">&times;</button>
+        <section>
+          <form>
+            <input id="id" type="text" class="form-control" placeholder="Id" />
+            <input
+              id="title"
+              type="text"
+              class="form-control"
+              placeholder="Title"
+            />
+            <input
+              id="description"
+              type="text"
+              class="form-control"
+              placeholder="Description"
+            />
+            <input
+              id="category"
+              type="text"
+              class="form-control"
+              placeholder="Category"
+            />
+            <input
+              id="length"
+              type="text"
+              class="form-control"
+              placeholder="Length"
+            />
+            <input
+              id="type"
+              type="text"
+              class="form-control"
+              placeholder="Type"
+            />
+            <input
+              id="price"
+              type="text"
+              class="form-control"
+              placeholder="Price"
+            />
+            <div class="buttons">
+              <button class="btn" id="save">Save</button>
+              <button class="btn" id="cancel">Cancel</button>
+            </div>
+          </form>
+        </section>
+      </div>
+      <!--#endregion - Add.js -->
+      <!--#region - ShoppingCart.js -->
+      <div class="modal-overlay-shopping-cart closed-shopping-cart"></div>
+      <div class="modal-shopping-cart closed-shopping-cart">
+        <button id="close-button">&times;</button>
+        <div class="modal-guts">
+          <div class="modal-title">
+            <i class="fas fa-shopping-cart"></i> Kundvagn
           </div>
-        </form>
-      </section>
-    </div>
-    <!--#endregion | add course modal -->
-    <!--#region | shopping cart modal -->
-    <div class="modal-overlay closed" id="modal-overlay"></div>
-    <div class="modal closed" id="modal">
-      <button class="close-button" id="close-button">&times;</button>
-      <div class="modal-guts">
-        <div class="modal-title">
-          <i class="fas fa-shopping-cart"></i> Kundvagn
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Kurs</th>
-              <th>Pris</th>
-              <th>Antal</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="shopping-cart-content"></tbody>
-        </table>
-        <div>
-          <p>Totalpris <span class="price-total">0</span> kr</p>
-        </div>
-        <div class="to-payment">
-          <a class="btn">Köp</a>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Kurs</th>
+                <th>Pris</th>
+                <th>Antal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="shopping-cart-content"></tbody>
+          </table>
+          <div>
+            <p>Totalpris <span class="price-total">0</span> kr</p>
+          </div>
+          <div class="to-payment">
+            <a class="btn">Köp</a>
+          </div>
         </div>
       </div>
-    </div>
-    <!--#endregion | shopping cart modal -->
-    <!--#region | buy confirmation modal -->
-    <div
-      class="modal-overlay-buy close-overlay-buy"
-      id="modal-overlay-buy"
-    ></div>
-    <div class="modal-buy closed-buy">
-      <p>
-        Tack för ditt köp! Du kommer även att få ett bekräftelsemail som
-        bekräftar köpet!
-      </p>
-      <button id="close-button-buy">&times;</button>
-      <div class="ok-buy-confirmation">
-        <a class="btn">Stäng</a>
+      <!--#endregion - ShoppingCart.js -->
+      <!--#region - Buy.js -->
+      <div class="modal-overlay-buy close-overlay-buy"></div>
+      <div class="modal-buy closed-buy">
+        <p>
+          Tack för ditt köp! Du kommer att få ett bekräftelsemail som bekräftar
+          köpet!
+        </p>
+        <button id="close-button-buy">&times;</button>
+        <div class="ok-buy-confirmation">
+          <a class="btn">Stäng</a>
+        </div>
       </div>
-    </div>
-    <!--#endregion | buy confirmation modal ------->
-    <main id="main-courses">
-      <!--#region | shopping cart bar -->
+      <!--#endregion - Buy.js -->
+      <!--#region - ShoppingCartBar.js -->
       <section id="shopping-cart-bar">
-        <a id="add-button" class="add-button">
+        <a id="add-button">
           <i class="far fa-plus-square"></i> Lägg till kurs (admin)
         </a>
-        <a id="open-button" class="open-button">
+        <a id="open-button">
           <i class="fas fa-shopping-cart"></i> Kundvagn (
           <span class="items-cart-ctr"></span>
           )
         </a>
       </section>
-      <!--#endregion | shopping cart bar -->
-      <!--#region | courses table -->
+      <!--#endregion - ShoppingCartBar.js -->
+    </header>
+    <main>
+      <!--#region - Courses.js -->
       <section>
         <section>
           <div class="table-courses-container">
@@ -181,27 +178,16 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody id="table-courses-content">
-                <!-- <tr>
-                  <td>${course.id}</td>
-                  <td>${course.title}</td>
-                  <td>${course.description}</td>
-                  <td>${course.category}</td>
-                  <td>${course.length}</td>
-                  <td>${course.typ}</td>
-                  <td>${course.courseNumber}</td>
-                  <td class="cart-btn-table add">Lägg i kundvagn</td>
-                </tr> -->
-              </tbody>
+              <tbody id="table-courses-content"></tbody>
             </table>
           </div>
         </section>
       </section>
-      <!--#endregion | courses table ****** -->
+      <!--#endregion - Courses.js -->
     </main>
-    <footer id="main-footer" class="py-2">
+    <footer id="main-footer">
       <div class="grid-items-autofit-same-size">
-        <div class="footer-columns">
+        <div>
           <h3>Nyhetsbrev</h3>
           <p>
             Prenumera på vårat nyhetsbrev för att inte missa bra erbjudanden och

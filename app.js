@@ -1,7 +1,7 @@
 "use strict";
 
 
-//#region  courses.html
+//#region - courses.html
 
 let buy = new Buy();
 let add = new Add("http://localhost:3000/kurser/");
@@ -12,7 +12,7 @@ let shoppingCartBar = new ShoppingCartBar(0);
 let shoppingCartItems = [];
 let data = [];
 
-const modalOverlayShoppingCart = document.querySelector("#modal-overlay");
+const modalOverlayShoppingCart = document.querySelector(".modal-overlay-shopping-cart");
 const modalOverlayBuy = document.querySelector(".modal-overlay-buy");
 const modalOverlayAdd = document.querySelector(".modal-overlay-add");
 
@@ -30,4 +30,4 @@ function CloseCorrectOverlay (event) {
   }
 }
 
-//#endregion  courses.html
+//#endregion - courses.html
