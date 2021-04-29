@@ -7,15 +7,11 @@ class Add {
     }
 
     addEventListeners() {
-        const closeButton = document.querySelector("#close-button");
         const addButton = document.querySelector("#add-button");
         const saveButton = document.querySelector("#save");
         const cancelButton = document.querySelector("#cancel");
         const closeButtonAdd = document.querySelector("#close-button-add");
 
-        closeButton.addEventListener("click", () => {
-            shoppingCart.toggle();
-        });
         addButton.addEventListener("click", () => {
             this.toggle();
         });
@@ -45,11 +41,11 @@ class Add {
         const priceInput = document.querySelector('#price');
 
         const course = {
-            id: idInput.value,
+            id: Number(idInput.value),
             title: titleInput.value,
             description: descriptionInput.value,
+            length: Number(lengthInput.value),
             category: categoryInput.value,
-            length: lengthInput.value,
             type: typeInput.value,
             price: priceInput.value,
         };
@@ -69,7 +65,6 @@ class Add {
 
     toggle() {
         const modalAdd = document.querySelector(".modal-add");
-
         modalAdd.classList.toggle("closed-add");
         modalOverlayAdd.classList.toggle("close-overlay-add");
     }

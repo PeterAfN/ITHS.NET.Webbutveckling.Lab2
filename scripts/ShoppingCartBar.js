@@ -8,7 +8,6 @@ class ShoppingCartBar {
 
   addEventListeners() {
     const openButton = document.querySelector("#open-button");
-
     openButton.addEventListener("click", function () {
       shoppingCart.toggle();
     });
@@ -16,7 +15,6 @@ class ShoppingCartBar {
 
   updateCounter(add) {
     const shoppingCartItemsCtr = document.querySelector(".items-cart-ctr");
-
     if (add === true) this.counter += 1;
     else this.counter -= 1;
     shoppingCartItemsCtr.innerHTML = "";

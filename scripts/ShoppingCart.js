@@ -6,11 +6,14 @@ class ShoppingCart {
     }
 
     addEventListeners() {
+        const closeButton = document.querySelector("#close-button");
         const openPaymentButton = document.querySelector(".to-payment");
-
         openPaymentButton.addEventListener("click", () => {
             this.toggle();
             buy.toggle();
+        });
+        closeButton.addEventListener("click", () => {
+            shoppingCart.toggle();
         });
     }
 
@@ -43,7 +46,6 @@ class ShoppingCart {
 
     addCourse(courseId) {
         const tableShoppingCart = document.querySelector("#shopping-cart-content");
-
         const index = data.findIndex((course) => course.id == courseId);
         let existAlready = shoppingCartItems.findIndex(
             (course) => course.id == courseId
@@ -92,7 +94,6 @@ class ShoppingCart {
 
     toggle() {
         const modal = document.querySelector(".modal-shopping-cart");
-
         modal.classList.toggle("closed-shopping-cart");
         modalOverlayShoppingCart.classList.toggle("closed-shopping-cart");
     }

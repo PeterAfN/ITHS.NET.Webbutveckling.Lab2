@@ -25,7 +25,6 @@ class Buy {
 
     toggle() {
         const modalBuy = document.querySelector(".modal-buy");
-
         modalBuy.classList.toggle("closed-buy");
         modalOverlayBuy.classList.toggle("close-overlay-buy");
     }

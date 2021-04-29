@@ -14,12 +14,12 @@ class Courses {
     createTable(courses) {
         data = courses;
         for (let course of data) {
-            this.addToPage(course);
+            this.addRow(course);
         }
         this.addEventListeners();
     }
 
-    addToPage(course) {
+    addRow(course) {
         const tableCoursesContent = document.querySelector("#table-courses-content");
 
         tableCoursesContent.insertAdjacentHTML(

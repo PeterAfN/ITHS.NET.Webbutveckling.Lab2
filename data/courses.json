@@ -433,112 +433,22 @@
       "price": "499"
     },
     {
-      "id": "66",
-      "title": "t",
+      "id": 49,
+      "title": "java",
+      "description": "grundkurs",
+      "length": 30,
+      "category": "programmering",
+      "type": "on demand",
+      "price": "199"
+    },
+    {
+      "id": 50,
+      "title": "java",
       "description": "t2",
-      "category": "t3",
-      "length": "5",
-      "type": "t6",
-      "price": "7"
-    },
-    {
-      "id": "666",
-      "title": "1",
-      "description": "2",
-      "category": "3",
-      "length": "4",
-      "type": "5",
-      "price": "6"
-    },
-    {
-      "id": "49",
-      "title": "testkurs",
-      "description": "vad ska man säga",
-      "category": "prog",
-      "length": "11",
-      "type": "asdfjkasdkljf",
-      "price": "1234"
-    },
-    {
-      "id": "123",
-      "title": "dasd",
-      "description": "dasd",
-      "category": "dasd",
-      "length": "dasd",
-      "type": "dasd",
-      "price": "dasdasd"
-    },
-    {
-      "id": "50",
-      "title": "ifk",
-      "description": "ifk",
-      "category": "ifk",
-      "length": "ifk",
-      "type": "ifk",
-      "price": "ifk"
-    },
-    {
-      "id": "51",
-      "title": "göteborg",
-      "description": "göteborg",
-      "category": "göteborg",
-      "length": "göteborg",
-      "type": "göteborg",
-      "price": "göteborg"
-    },
-    {
-      "id": "52",
-      "title": "frölumda",
-      "description": "frölumda",
-      "category": "frölumda",
-      "length": "frölumda",
-      "type": "frölumda",
-      "price": "frölumda"
-    },
-    {
-      "id": "53",
-      "title": "glad",
-      "description": "glad",
-      "category": "glad",
-      "length": "glad",
-      "type": "glad",
-      "price": "glad"
-    },
-    {
-      "id": "54",
-      "title": "rögle",
-      "description": "rögle",
+      "length": null,
       "category": "rögle",
-      "length": "rögle",
-      "type": "rögle",
+      "type": "on demand",
       "price": "rögle"
-    },
-    {
-      "id": "55",
-      "title": "färjestad",
-      "description": "färjestad",
-      "category": "färjestad",
-      "length": "färjestad",
-      "type": "färjestad",
-      "price": "färjestad"
-    },
-    {
-      "id": "qXPnDqF",
-      "title": "",
-      "description": "",
-      "category": "",
-      "length": "",
-      "type": "",
-      "price": ""
-    },
-    {
-      "id": "lqB11By",
-      "title": "",
-      "description": "",
-      "category": "",
-      "length": "",
-      "type": "",
-      "price": ""
     }
   ]
 }
