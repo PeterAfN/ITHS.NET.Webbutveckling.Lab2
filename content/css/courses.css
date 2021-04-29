@@ -1,7 +1,6 @@
 /*#region - Add */
 .modal-add {
   max-width: 400px;
-  /* width: 100%; */
   width: 90vw;
   position: fixed;
   z-index: 100;
@@ -33,16 +32,8 @@
 
 #add-container #save,
 #add-container #cancel {
-  /* width: 100px;
-  border-radius: 2px;
-  background-color: var(--primary-color);
-  margin: 0.4rem;
-  border-radius: 1px;
-  cursor: pointer; */
-
   cursor: pointer;
   display: inline-block;
-  /* margin-bottom: 2rem; */
   color: var(--secondary-color);
   background-color: var(--primary-color);
   border: solid 1px var(--secondary-color);
@@ -149,8 +140,7 @@ input[type="text"] {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /*gör den scrollbar*/
-  /* justify-content: center; */
+  overflow: auto;
 }
 
 .modal-shopping-cart .modal-title {
@@ -326,7 +316,7 @@ input[type="text"] {
 /*#region - media queries */
 @media (max-width: 580px) {
   .table-courses-container {
-    margin-top:37px;
+    margin-top: 37px;
   }
 
   .modal-buy p {
@@ -400,7 +390,7 @@ input[type="text"] {
   }
 
   .table-courses-container th {
-    font-size:smaller;
+    font-size: smaller;
   }
 
   .table-courses-container td {

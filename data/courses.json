@@ -434,21 +434,12 @@
     },
     {
       "id": 49,
-      "title": "java",
-      "description": "grundkurs",
-      "length": 30,
-      "category": "programmering",
-      "type": "on demand",
-      "price": "199"
-    },
-    {
-      "id": 50,
-      "title": "java",
-      "description": "t2",
-      "length": null,
-      "category": "rögle",
-      "type": "on demand",
-      "price": "rögle"
+      "title": "test",
+      "description": "test2",
+      "length": 55,
+      "category": "test3",
+      "type": "test4",
+      "price": "123"
     }
   ]
 }

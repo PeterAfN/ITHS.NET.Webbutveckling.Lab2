@@ -41,7 +41,8 @@ class Add {
         const priceInput = document.querySelector('#price');
 
         const course = {
-            id: Number(idInput.value),
+            // id: Number(idInput.value),
+            id: Number(Number(data[data.length - 1].id) + 1),
             title: titleInput.value,
             description: descriptionInput.value,
             length: Number(lengthInput.value),
